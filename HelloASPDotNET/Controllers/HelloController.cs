@@ -29,6 +29,39 @@ namespace HelloASPDotNET.Controllers
             return Content(html, "text/html");
         }
 
+        [HttpPost]
+        public IActionResult Display(string name = "World", string language = "english")
+        {
+            return Content(CreateMessage(name, language));
+
+        }
+
+        public static string CreateMessage(string name, string language)
+        {
+            string helloTranslation = "";
+            switch (language)
+            {
+                case "french":
+                    helloTranslation = "Bonjour ";
+                    break;
+                case "spanish":
+                    helloTranslation = "Hola ";
+                    break;
+                case "bosnian":
+                    helloTranslation = "Zdravo ";
+                    break;
+                case "vietnamese":
+                    helloTranslation = "Xin Chao ";
+                    break;
+                case "english":
+                    helloTranslation = "Hello ";
+                    break;
+            }
+            return helloTranslation + name;
+
+        }
+
+
         // GET: /helloworld/welcome
         // POST: /helloworld/welcome
         [HttpPost("welcome")]
