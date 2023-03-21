@@ -15,10 +15,17 @@ namespace HelloASPDotNET.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            string html = "<form method='post' action='/helloworld/welcome'>" +
+            string html = "<form method='post'>" +
                 "<input type='text' name='name' />" +
-                "<input type='submit' value='Greet Me!' />" +
+                "<select name='language'>"+
+                "<option value='english' selected>English</option>" +
+                "<option value='spanish'>Spanish</spanish>" +
+                "<option value='bosnian'>Bosnian</option>" +
+                "<option value='vietnamese'>Vietnamese</option>" +
+                "<option value='french'>French</option></select>" +
+                "<input type='submit' value='Greet Me!'/>" +
                 "</form>";
+
             return Content(html, "text/html");
         }
 
